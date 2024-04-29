@@ -9,6 +9,9 @@ class Keymapper < Formula
     depends_on "dbus"
   end
 
+  # TODO: why does CMake's FetchContent not extract the files?
+  depends_on "asio" => :build
+
   def install
     system "cmake", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build", "-j", "4"

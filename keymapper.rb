@@ -13,7 +13,13 @@ class Keymapper < Formula
   depends_on "asio" => :build
 
   def install
-    system "cmake", "-B", "build", *std_cmake_args
+    # Disables Homebrew's FetchContent trapping.
+    args = std_cmake_args
+    args += %W[
+      -DHOMEBREW_ALLOW_FETCHCONTENT=ON
+    ]
+
+    system "cmake", "-B", "build", *args
     system "cmake", "--build", "build", "-j", "4"
     system "cmake", "--install", "build"
   end

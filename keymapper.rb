@@ -9,9 +9,6 @@ class Keymapper < Formula
     depends_on "dbus"
   end
 
-  # TODO: why does CMake's FetchContent not extract the files?
-  depends_on "asio" => :build
-
   def install
     # Disables Homebrew's FetchContent trapping.
     args = std_cmake_args

@@ -11,4 +11,9 @@ class spright < Formula
     system "cmake", "--build", "build", "-j", "4"
     system "cmake", "--install", "build"
   end
+
+  test do
+    system "touch", "#{bin}/spright.conf"
+    system "#{bin}/spright"
+  end
 end

@@ -7,7 +7,7 @@ class Spright < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-B", "build", std_cmake_args
+    system "cmake", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build", "-j", "4"
     system "cmake", "--install", "build"
   end

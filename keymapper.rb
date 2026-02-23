@@ -22,13 +22,15 @@ class Keymapper < Formula
   end
 
   def caveats
-    <<~EOS
+    if OS.mac?
+      <<~EOS
       To add keymapperd and keymapper to the launchd daemons/agents call:
       `sudo keymapper-launchd add`
       
       To remove them call:
       `sudo keymapper-launchd remove`
-    EOS
+      EOS
+    end
   end
 
   test do
